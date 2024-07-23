@@ -30,16 +30,24 @@ public class TestServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		out.println("<html><head></head><body><br>"+username+"<br>"+password+"</body></html>");
+		out.println("<html><head></head><body><br>" + username + "<br>" + password + "</body></html>");
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		System.out.println(username);
+		System.out.println(password);
+		
+		PrintWriter out = response.getWriter();
+		
+		out.println("<html><head></head><body><br>" + username + "<br>" + password + "</body></html>");
+		
 	}
 
 }
